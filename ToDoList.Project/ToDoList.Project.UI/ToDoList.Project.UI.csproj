@@ -4,8 +4,29 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Include="wwwroot\bower_components\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="wwwroot\bower_components\font-awesome\css\font-awesome.min.css" />
+    <Content Include="wwwroot\bower_components\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="wwwroot\bower_components\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="wwwroot\bower_components\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="wwwroot\bower_components\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="wwwroot\bower_components\Ionicons\css\ionicons.min.css" />
+  </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="DeveloperForce.Force" Version="2.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\bower_components\bootstrap\dist\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\bower_components\bootstrap\dist\js\bootstrap.min.js" />
+    <None Include="wwwroot\bower_components\fastclick\lib\fastclick.js" />
+    <None Include="wwwroot\bower_components\font-awesome\fonts\fontawesome-webfont.svg" />
+    <None Include="wwwroot\bower_components\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\bower_components\jquery-slimscroll\jquery.slimscroll.min.js" />
+    <None Include="wwwroot\bower_components\jquery\dist\jquery.min.js" />
+    <None Include="wwwroot\bower_components\jquery\dist\jquery.min.map" />
   </ItemGroup>
 
 </Project>
