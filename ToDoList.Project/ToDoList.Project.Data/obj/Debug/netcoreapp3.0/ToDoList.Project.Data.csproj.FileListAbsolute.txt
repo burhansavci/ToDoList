@@ -1,0 +1,11 @@
+C:\Users\burha\OneDrive\Desktop\Projects\ToDoList\ToDoList.Project\ToDoList.Project.Data\bin\Debug\netcoreapp3.0\ToDoList.Project.Data.deps.json
+C:\Users\burha\OneDrive\Desktop\Projects\ToDoList\ToDoList.Project\ToDoList.Project.Data\bin\Debug\netcoreapp3.0\ToDoList.Project.Data.dll
+C:\Users\burha\OneDrive\Desktop\Projects\ToDoList\ToDoList.Project\ToDoList.Project.Data\obj\Debug\netcoreapp3.0\ToDoList.Project.Data.csprojAssemblyReference.cache
+C:\Users\burha\OneDrive\Desktop\Projects\ToDoList\ToDoList.Project\ToDoList.Project.Data\obj\Debug\netcoreapp3.0\ToDoList.Project.Data.AssemblyInfoInputs.cache
+C:\Users\burha\OneDrive\Desktop\Projects\ToDoList\ToDoList.Project\ToDoList.Project.Data\obj\Debug\netcoreapp3.0\ToDoList.Project.Data.AssemblyInfo.cs
+C:\Users\burha\OneDrive\Desktop\Projects\ToDoList\ToDoList.Project\ToDoList.Project.Data\bin\Debug\netcoreapp3.0\ToDoList.Project.Data.pdb
+C:\Users\burha\OneDrive\Desktop\Projects\ToDoList\ToDoList.Project\ToDoList.Project.Data\bin\Debug\netcoreapp3.0\ToDoList.Project.Models.dll
+C:\Users\burha\OneDrive\Desktop\Projects\ToDoList\ToDoList.Project\ToDoList.Project.Data\bin\Debug\netcoreapp3.0\ToDoList.Project.Models.pdb
+C:\Users\burha\OneDrive\Desktop\Projects\ToDoList\ToDoList.Project\ToDoList.Project.Data\obj\Debug\netcoreapp3.0\ToDoList.Project.Data.csproj.CopyComplete
+C:\Users\burha\OneDrive\Desktop\Projects\ToDoList\ToDoList.Project\ToDoList.Project.Data\obj\Debug\netcoreapp3.0\ToDoList.Project.Data.dll
+C:\Users\burha\OneDrive\Desktop\Projects\ToDoList\ToDoList.Project\ToDoList.Project.Data\obj\Debug\netcoreapp3.0\ToDoList.Project.Data.pdb

@@ -16,6 +16,37 @@
           "lib/netstandard2.0/Salesforce.Force.dll": {}
         }
       },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/3.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Options/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.0.0",
+          "Microsoft.Extensions.Primitives": "3.0.0"
+        },
+        "compile": {
+          "lib/netcoreapp3.0/Microsoft.Extensions.Options.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/Microsoft.Extensions.Options.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Primitives/3.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.0/Microsoft.Extensions.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/Microsoft.Extensions.Primitives.dll": {}
+        }
+      },
       "Newtonsoft.Json/11.0.2": {
         "type": "package",
         "compile": {
@@ -23,6 +54,34 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "ToDoList.Project.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.0",
+        "dependencies": {
+          "DeveloperForce.Force": "2.1.0",
+          "Microsoft.Extensions.Options": "3.0.0",
+          "ToDoList.Project.Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ToDoList.Project.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ToDoList.Project.Data.dll": {}
+        }
+      },
+      "ToDoList.Project.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.0",
+        "dependencies": {
+          "DeveloperForce.Force": "2.1.0"
+        },
+        "compile": {
+          "bin/placeholder/ToDoList.Project.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ToDoList.Project.Models.dll": {}
         }
       }
     }
@@ -45,6 +104,49 @@
         "lib/net472/Salesforce.Force.dll",
         "lib/netstandard2.0/Salesforce.Common.dll",
         "lib/netstandard2.0/Salesforce.Force.dll"
+      ]
+    },
+    "Microsoft.Extensions.DependencyInjection.Abstractions/3.0.0": {
+      "sha512": "ofQRroDlzJ0xKOtzNuaVt6QKNImFkhkG0lIMpGl7PtXnIf5SuLWBeiQZAP8DNSxDBJJdcsPkiJiMYK2WA5H8dQ==",
+      "type": "package",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "microsoft.extensions.dependencyinjection.abstractions.3.0.0.nupkg.sha512",
+        "microsoft.extensions.dependencyinjection.abstractions.nuspec"
+      ]
+    },
+    "Microsoft.Extensions.Options/3.0.0": {
+      "sha512": "aZuVhN/TC872Yb55nrb7an82sfSAdNYxIyzu3zbYHOnhwal5hdkBUxzuoYj1khI2sw0tWq6i82i624zEFmiJhg==",
+      "type": "package",
+      "path": "microsoft.extensions.options/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netcoreapp3.0/Microsoft.Extensions.Options.dll",
+        "lib/netcoreapp3.0/Microsoft.Extensions.Options.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Options.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Options.xml",
+        "microsoft.extensions.options.3.0.0.nupkg.sha512",
+        "microsoft.extensions.options.nuspec"
+      ]
+    },
+    "Microsoft.Extensions.Primitives/3.0.0": {
+      "sha512": "6gwewTbmOh+ZVBicVkL1XRp79sx4O7BVY6Yy+7OYZdwn3pyOKe9lOam+3gXJ3TZMjhJZdV0Ub8hxHt2vkrmN5Q==",
+      "type": "package",
+      "path": "microsoft.extensions.primitives/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netcoreapp3.0/Microsoft.Extensions.Primitives.dll",
+        "lib/netcoreapp3.0/Microsoft.Extensions.Primitives.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Primitives.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Primitives.xml",
+        "microsoft.extensions.primitives.3.0.0.nupkg.sha512",
+        "microsoft.extensions.primitives.nuspec"
       ]
     },
     "Newtonsoft.Json/11.0.2": {
@@ -76,11 +178,23 @@
         "newtonsoft.json.11.0.2.nupkg.sha512",
         "newtonsoft.json.nuspec"
       ]
+    },
+    "ToDoList.Project.Data/1.0.0": {
+      "type": "project",
+      "path": "../ToDoList.Project.Data/ToDoList.Project.Data.csproj",
+      "msbuildProject": "../ToDoList.Project.Data/ToDoList.Project.Data.csproj"
+    },
+    "ToDoList.Project.Models/1.0.0": {
+      "type": "project",
+      "path": "../ToDoList.Project.Models/ToDoList.Project.Models.csproj",
+      "msbuildProject": "../ToDoList.Project.Models/ToDoList.Project.Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.0": [
-      "DeveloperForce.Force >= 2.1.0"
+      "DeveloperForce.Force >= 2.1.0",
+      "ToDoList.Project.Data >= 1.0.0",
+      "ToDoList.Project.Models >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -112,7 +226,14 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\burha\\OneDrive\\Desktop\\Projects\\ToDoList\\ToDoList.Project\\ToDoList.Project.Data\\ToDoList.Project.Data.csproj": {
+              "projectPath": "C:\\Users\\burha\\OneDrive\\Desktop\\Projects\\ToDoList\\ToDoList.Project\\ToDoList.Project.Data\\ToDoList.Project.Data.csproj"
+            },
+            "C:\\Users\\burha\\OneDrive\\Desktop\\Projects\\ToDoList\\ToDoList.Project\\ToDoList.Project.Models\\ToDoList.Project.Models.csproj": {
+              "projectPath": "C:\\Users\\burha\\OneDrive\\Desktop\\Projects\\ToDoList\\ToDoList.Project\\ToDoList.Project.Models\\ToDoList.Project.Models.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

@@ -36,3 +36,7 @@ C:\Users\burha\OneDrive\Desktop\Projects\ToDoList\ToDoList.Project\ToDoList.Proj
 C:\Users\burha\OneDrive\Desktop\Projects\ToDoList\ToDoList.Project\ToDoList.Project.UI\obj\Debug\netcoreapp3.0\ToDoList.Project.UI.csproj.CopyComplete
 C:\Users\burha\OneDrive\Desktop\Projects\ToDoList\ToDoList.Project\ToDoList.Project.UI\obj\Debug\netcoreapp3.0\ToDoList.Project.UI.dll
 C:\Users\burha\OneDrive\Desktop\Projects\ToDoList\ToDoList.Project\ToDoList.Project.UI\obj\Debug\netcoreapp3.0\ToDoList.Project.UI.pdb
+C:\Users\burha\OneDrive\Desktop\Projects\ToDoList\ToDoList.Project\ToDoList.Project.UI\bin\Debug\netcoreapp3.0\ToDoList.Project.Data.dll
+C:\Users\burha\OneDrive\Desktop\Projects\ToDoList\ToDoList.Project\ToDoList.Project.UI\bin\Debug\netcoreapp3.0\ToDoList.Project.Models.dll
+C:\Users\burha\OneDrive\Desktop\Projects\ToDoList\ToDoList.Project\ToDoList.Project.UI\bin\Debug\netcoreapp3.0\ToDoList.Project.Data.pdb
+C:\Users\burha\OneDrive\Desktop\Projects\ToDoList\ToDoList.Project\ToDoList.Project.UI\bin\Debug\netcoreapp3.0\ToDoList.Project.Models.pdb

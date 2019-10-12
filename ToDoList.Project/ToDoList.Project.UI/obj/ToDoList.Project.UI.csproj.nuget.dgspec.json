@@ -4,6 +4,136 @@
     "C:\\Users\\burha\\OneDrive\\Desktop\\Projects\\ToDoList\\ToDoList.Project\\ToDoList.Project.UI\\ToDoList.Project.UI.csproj": {}
   },
   "projects": {
+    "C:\\Users\\burha\\OneDrive\\Desktop\\Projects\\ToDoList\\ToDoList.Project\\ToDoList.Project.Data\\ToDoList.Project.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\burha\\OneDrive\\Desktop\\Projects\\ToDoList\\ToDoList.Project\\ToDoList.Project.Data\\ToDoList.Project.Data.csproj",
+        "projectName": "ToDoList.Project.Data",
+        "projectPath": "C:\\Users\\burha\\OneDrive\\Desktop\\Projects\\ToDoList\\ToDoList.Project\\ToDoList.Project.Data\\ToDoList.Project.Data.csproj",
+        "packagesPath": "C:\\Users\\burha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\burha\\OneDrive\\Desktop\\Projects\\ToDoList\\ToDoList.Project\\ToDoList.Project.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\burha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {
+              "C:\\Users\\burha\\OneDrive\\Desktop\\Projects\\ToDoList\\ToDoList.Project\\ToDoList.Project.Models\\ToDoList.Project.Models.csproj": {
+                "projectPath": "C:\\Users\\burha\\OneDrive\\Desktop\\Projects\\ToDoList\\ToDoList.Project\\ToDoList.Project.Models\\ToDoList.Project.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "dependencies": {
+            "DeveloperForce.Force": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\burha\\OneDrive\\Desktop\\Projects\\ToDoList\\ToDoList.Project\\ToDoList.Project.Models\\ToDoList.Project.Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\burha\\OneDrive\\Desktop\\Projects\\ToDoList\\ToDoList.Project\\ToDoList.Project.Models\\ToDoList.Project.Models.csproj",
+        "projectName": "ToDoList.Project.Models",
+        "projectPath": "C:\\Users\\burha\\OneDrive\\Desktop\\Projects\\ToDoList\\ToDoList.Project\\ToDoList.Project.Models\\ToDoList.Project.Models.csproj",
+        "packagesPath": "C:\\Users\\burha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\burha\\OneDrive\\Desktop\\Projects\\ToDoList\\ToDoList.Project\\ToDoList.Project.Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\burha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "dependencies": {
+            "DeveloperForce.Force": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\Users\\burha\\OneDrive\\Desktop\\Projects\\ToDoList\\ToDoList.Project\\ToDoList.Project.UI\\ToDoList.Project.UI.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -29,7 +159,14 @@
         },
         "frameworks": {
           "netcoreapp3.0": {
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\burha\\OneDrive\\Desktop\\Projects\\ToDoList\\ToDoList.Project\\ToDoList.Project.Data\\ToDoList.Project.Data.csproj": {
+                "projectPath": "C:\\Users\\burha\\OneDrive\\Desktop\\Projects\\ToDoList\\ToDoList.Project\\ToDoList.Project.Data\\ToDoList.Project.Data.csproj"
+              },
+              "C:\\Users\\burha\\OneDrive\\Desktop\\Projects\\ToDoList\\ToDoList.Project\\ToDoList.Project.Models\\ToDoList.Project.Models.csproj": {
+                "projectPath": "C:\\Users\\burha\\OneDrive\\Desktop\\Projects\\ToDoList\\ToDoList.Project\\ToDoList.Project.Models\\ToDoList.Project.Models.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

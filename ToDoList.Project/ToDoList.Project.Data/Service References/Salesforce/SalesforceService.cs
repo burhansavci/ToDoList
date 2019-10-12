@@ -2,10 +2,11 @@
 using Salesforce.Force;
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
+using ToDoList.Project.Models.CustomConfig;
 
-namespace ToDoList.Project.UI.Servis_References.Salesforce
+namespace ToDoList.Project.Data.Service_References.Salesforce
 {
     public class SalesforceService
     {

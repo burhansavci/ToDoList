@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ToDoList.Project.Data.Repositories;
+using ToDoList.Project.Models.Contracts;
+using ToDoList.Project.Models.CustomConfig;
 
 namespace ToDoList.Project.UI
 {
@@ -25,6 +28,7 @@ namespace ToDoList.Project.UI
         {
             services.AddOptions();
             services.Configure<MyConfig>(Configuration.GetSection("Salesforce"));
+            services.AddScoped<IToDoListRepository, ToDoListRepository>();
             services.AddControllersWithViews();
         }
 

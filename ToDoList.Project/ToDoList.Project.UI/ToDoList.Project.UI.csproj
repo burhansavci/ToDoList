@@ -29,4 +29,9 @@
     <None Include="wwwroot\bower_components\jquery\dist\jquery.min.map" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ToDoList.Project.Data\ToDoList.Project.Data.csproj" />
+    <ProjectReference Include="..\ToDoList.Project.Models\ToDoList.Project.Models.csproj" />
+  </ItemGroup>
+
 </Project>
