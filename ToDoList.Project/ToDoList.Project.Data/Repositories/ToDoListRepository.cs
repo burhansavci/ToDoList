@@ -31,7 +31,6 @@ namespace ToDoList.Project.Data.Repositories
             query.Remove(query.Length - 1, 1);
             query.AppendFormat(" FROM {0})", sfChildObject);
             query.AppendFormat(" FROM ToDoList__c WHERE Id='{0}'", parentId);
-
             var result = await base._client.QueryAsync<Models.Entities.ToDoList>(query.ToString());
             return result.Records[0];
         }

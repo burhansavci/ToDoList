@@ -5,6 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="wwwroot\bower_components\bootstrap-datepicker\dist\css\bootstrap-datepicker.min.css" />
+    <Content Include="wwwroot\bower_components\bootstrap-daterangepicker\daterangepicker.css" />
     <Content Include="wwwroot\bower_components\bootstrap\dist\css\bootstrap.min.css" />
     <Content Include="wwwroot\bower_components\font-awesome\css\font-awesome.min.css" />
     <Content Include="wwwroot\bower_components\font-awesome\fonts\fontawesome-webfont.eot" />
@@ -26,6 +28,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\bower_components\bootstrap-datepicker\dist\js\bootstrap-datepicker.min.js" />
+    <None Include="wwwroot\bower_components\bootstrap-daterangepicker\daterangepicker.js" />
     <None Include="wwwroot\bower_components\bootstrap\dist\css\bootstrap.min.css.map" />
     <None Include="wwwroot\bower_components\bootstrap\dist\js\bootstrap.min.js" />
     <None Include="wwwroot\bower_components\fastclick\lib\fastclick.js" />
@@ -34,6 +38,7 @@
     <None Include="wwwroot\bower_components\jquery-slimscroll\jquery.slimscroll.min.js" />
     <None Include="wwwroot\bower_components\jquery\dist\jquery.min.js" />
     <None Include="wwwroot\bower_components\jquery\dist\jquery.min.map" />
+    <None Include="wwwroot\bower_components\moment\min\moment.min.js" />
   </ItemGroup>
 
   <ItemGroup>

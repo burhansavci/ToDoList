@@ -1,28 +1,41 @@
-﻿@model List<ToDoList.Project.Models.Entities.ToDoList>
+﻿@model ToDoList.Project.UI.Models.ToDoListVM
 @{
     ViewData["Title"] = "GetToDoList";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-@foreach (var toDoList in Model)
+@if (Model.ToDoSteps != null && Model.ToDoSteps.Any())
 {
-    <div class="callout callout-info">
-        <h4>@toDoList.Name__c                                       @toDoList.Duedate__c</h4> 
-
-        <p>
-         @toDoList.IsCompleted__c
-        </p>
+    @foreach (var toDoStep in Model.ToDoSteps)
+    {
+        <div class="callout callout-info">
+            <h4>@toDoStep.Title__c</h4>
+            <p>
+                @toDoStep.Description__c
+            </p>
+        </div>
+    }
+}
+else
+{
+    <div class="box box-default">
+        <div class="box-header with-border">
+            <h3 class="box-title">Blank Box</h3>
+        </div>
+        <div class="box-body">
+           You don't have any steps!
+        </div>
     </div>
 }
-@*<div class="callout callout-info">
-    <h4>Tip!</h4>
 
-    <p>
-        Add the layout-top-nav class to the body tag to get this layout. This feature can also be used with a
-        sidebar! So use this class if you want to remove the custom dropdown menus from the navbar and use regular
-        links instead.
-    </p>
-</div>*@
+@*<div class="callout callout-info">
+        <h4>Tip!</h4>
+
+        <p>
+            Add the layout-top-nav class to the body tag to get this layout. This feature can also be used with a
+            sidebar! So use this class if you want to remove the custom dropdown menus from the navbar and use regular
+            links instead.
+        </p>
+    </div>*@
 @*<div class="callout callout-danger">
         <h4>Warning!</h4>
 

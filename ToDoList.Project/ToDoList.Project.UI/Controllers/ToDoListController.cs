@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ToDoList.Project.Models.Contracts;
+using ToDoList.Project.Models.Entities;
+using ToDoList.Project.UI.Models;
 
 namespace ToDoList.Project.UI.Controllers
 {
@@ -16,10 +18,30 @@ namespace ToDoList.Project.UI.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetToDoList()
+        public async Task<IActionResult> GetToDoList(string parentId)
         {
-            var model=await _toDoListRepo.Get("ToDoList__c", "Name__c", "IsCompleted__c", "DueDate__c");
-            return View(model);
+            var toDoList = await _toDoListRepo.GetWithChild(parentId, "toDoSteps__r", new string[] { "Name__c", "DueDate__c", "IsCompleted__c" }, "Title__c", "Description__c", "DueDate__c", "IsCompleted__c");
+            if (toDoList.ToDoSteps__r != null)
+                return View(new ToDoListVM
+                {
+                    ToDoList = toDoList,
+                    ToDoSteps = toDoList.ToDoSteps__r.Records
+
+                });
+            else
+            {
+                return View(new ToDoListVM
+                {
+                    ToDoList = toDoList,
+                    ToDoSteps = new List<ToDoStep>()
+                }) ;
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddToDoList()
+        {
+            return View();
         }
     }
 }

@@ -1,0 +1,78 @@
+﻿@model ToDoList.Project.UI.Models.ToDoListVM
+
+<header class="main-header">
+    <nav class="navbar navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="../../index2.html" class="navbar-brand">My ToDoApp</a>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">My ToDoLists <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            @foreach (var toDoList in Model.ToDoLists.OrderBy(x => x.Name__c))
+                            {
+                                <li><a href="@Url.RouteUrl(new { controller = "ToDoList", action = "GetToDoList", parentId = toDoList.Id })">@toDoList.Name__c</a></li>
+                            }
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
+                            Create ToDoList
+                        </button>
+                    </li>
+                    <li>
+                        <a href="#">Update ToDoList</a>
+                    </li>
+                    <li>
+                        <a href="#">Delete ToDoList</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+            <!-- Navbar Right Menu -->
+            <!-- /.navbar-custom-menu -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+</header>
+<div class="modal fade" id="modal-default">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Default Modal</h4>
+            </div>
+            <div class="modal-body">
+                <form id="toDoListAdd" method="post">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" class="form-control" placeholder="Enter ...">
+                    </div>
+                    <div class="form-group">
+                        <label>Due Date:</label>
+                        <div class="input-group date">
+                            <div class="input-group-addon">
+                                <i class="fa fa-calendar"></i>
+                            </div>
+                            <input type="text" class="form-control pull-right" id="datepicker">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
