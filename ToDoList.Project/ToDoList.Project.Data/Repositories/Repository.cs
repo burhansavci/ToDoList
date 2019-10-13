@@ -17,7 +17,7 @@ namespace ToDoList.Project.Data.Repositories
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class, IEntity, new()
     {
         private readonly IOptions<MyConfig> _config;
-        private readonly ForceClient _client;
+        protected readonly ForceClient _client;
         public Repository(IOptions<MyConfig> config)
         {
             _config = config;

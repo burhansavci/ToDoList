@@ -109,12 +109,6 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
-          "dependencies": {
-            "DeveloperForce.Force": {
-              "target": "Package",
-              "version": "[2.1.0, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",

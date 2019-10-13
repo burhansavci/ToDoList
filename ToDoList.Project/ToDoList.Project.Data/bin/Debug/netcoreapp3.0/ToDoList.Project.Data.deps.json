@@ -68,9 +68,6 @@
         }
       },
       "ToDoList.Project.Models/1.0.0": {
-        "dependencies": {
-          "DeveloperForce.Force": "2.1.0"
-        },
         "runtime": {
           "ToDoList.Project.Models.dll": {}
         }

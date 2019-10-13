@@ -7,7 +7,7 @@ using ToDoList.Project.Models.Entities;
 namespace ToDoList.Project.Models.Contracts
 {
     public interface IToDoListRepository : IRepository<Entities.ToDoList> {
-        //Task<List<Entities.ToDoList>> GetWithChild();
+        Task<Entities.ToDoList> GetWithChild(string parentId, string sfChildObject, string[] includedFieldsParent, params string[] includedFieldsChild);
     }
     public interface IToDoStepRepository : IRepository<ToDoStep> { }
 }

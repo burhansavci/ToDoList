@@ -24,19 +24,20 @@ namespace ToDoList.Project.UI.Controllers
             _toDoListRepo = toDoListRepo;
         }
 
-        public async Task<IActionResult> Index()
+        public  IActionResult Index()
         {
-            var sfObject = await _toDoListRepo.Get("ToDoList__c","DueDate__c","Name__c");
-            var sfObject2 = await _toDoListRepo.GetById("a063j00001fDvVcAAK","ToDoList__c","DueDate__c");
+            //var sfObject = await _toDoListRepo.Get("ToDoList__c","DueDate__c","Name__c");
+            //var sfObject2 = await _toDoListRepo.GetById("a063j00001fDvVcAAK","ToDoList__c","DueDate__c");
+            //var sfObject4=await _toDoListRepo.GetWithChild()
             //  var sfObject3 = new ToDoList.Project.Models.Entities.ToDoList { Duedate__c = DateTime.Now, IsCompleted__c = false, Name__c = "Deneme2" };
             //await  _toDoListRepo.Insert(sfObject3);
             //   var sfObject4 = sfObject2;
             //   sfObject4.Name__c = "degistirme";
             //await _toDoListRepo.Update(sfObject4);
-             await _toDoListRepo.Delete(sfObject2.Id, "ToDoList__c");
+             //await _toDoListRepo.Delete(sfObject2.Id, "ToDoList__c");
 
 
-            return View(sfObject);
+            return View();
         }
         //"a063j00001fDvX4AAK"
         public IActionResult Privacy()

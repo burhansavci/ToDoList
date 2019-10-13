@@ -1,5 +1,4 @@
-﻿using Salesforce.Common.Attributes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
@@ -9,7 +8,6 @@ namespace ToDoList.Project.Models.Entities
     public class ToDoList:IEntity
     {
         [Key]
-        [Updateable(true)]
         public string Id { get; set; }
 
         [Display(Name = "DueDate")]

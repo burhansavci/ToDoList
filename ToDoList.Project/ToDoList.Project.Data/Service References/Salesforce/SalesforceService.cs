@@ -13,6 +13,7 @@ namespace ToDoList.Project.Data.Service_References.Salesforce
         private readonly MyConfig _configuration;
         private AuthenticationClient AuthenticationClient { get; }
 
+
         public SalesforceService(MyConfig configuration)
         {
             this.AuthenticationClient = new AuthenticationClient();
