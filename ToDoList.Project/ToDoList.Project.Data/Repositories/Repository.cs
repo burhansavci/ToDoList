@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Options;
+using Salesforce.Common.Models.Json;
 using Salesforce.Common.Models.Xml;
 using Salesforce.Force;
 using System;
@@ -52,13 +53,13 @@ namespace ToDoList.Project.Data.Repositories
             return result.Records[0];
         }
 
-        public async Task<string> Insert(TEntity entity)
+        public async Task<SuccessResponse> Insert(TEntity entity)
         {
             var successResponse = await _client.CreateAsync(entity.GetType().Name + "__c", entity);
-            return successResponse.Id;
+            return successResponse;
         }
 
-        public async Task<string> Update(TEntity entity)
+        public async Task<SuccessResponse> Update(TEntity entity)
         {
             IDictionary<string, object> sfObjectFields = new ExpandoObject();
 
@@ -70,7 +71,7 @@ namespace ToDoList.Project.Data.Repositories
                 sfObjectFields.Add(propInfo.Name, propValue);
             }
             var successResponse = await _client.UpdateAsync(entity.GetType().Name + "__c", entity.Id, sfObjectFields);
-            return successResponse.Id;
+            return successResponse;
         }
 
         public async Task<bool> Delete(string id, string sfObject)

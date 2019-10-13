@@ -1,7 +1,6 @@
 C:\Users\burha\OneDrive\Desktop\Projects\ToDoList\ToDoList.Project\ToDoList.Project.Models\bin\Debug\netcoreapp3.0\ToDoList.Project.Models.deps.json
 C:\Users\burha\OneDrive\Desktop\Projects\ToDoList\ToDoList.Project\ToDoList.Project.Models\bin\Debug\netcoreapp3.0\ToDoList.Project.Models.dll
 C:\Users\burha\OneDrive\Desktop\Projects\ToDoList\ToDoList.Project\ToDoList.Project.Models\bin\Debug\netcoreapp3.0\ToDoList.Project.Models.pdb
-C:\Users\burha\OneDrive\Desktop\Projects\ToDoList\ToDoList.Project\ToDoList.Project.Models\obj\Debug\netcoreapp3.0\ToDoList.Project.Models.csprojAssemblyReference.cache
 C:\Users\burha\OneDrive\Desktop\Projects\ToDoList\ToDoList.Project\ToDoList.Project.Models\obj\Debug\netcoreapp3.0\ToDoList.Project.Models.AssemblyInfoInputs.cache
 C:\Users\burha\OneDrive\Desktop\Projects\ToDoList\ToDoList.Project\ToDoList.Project.Models\obj\Debug\netcoreapp3.0\ToDoList.Project.Models.AssemblyInfo.cs
 C:\Users\burha\OneDrive\Desktop\Projects\ToDoList\ToDoList.Project\ToDoList.Project.Models\obj\Debug\netcoreapp3.0\ToDoList.Project.Models.dll

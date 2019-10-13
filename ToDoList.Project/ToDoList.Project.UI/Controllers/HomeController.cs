@@ -39,11 +39,6 @@ namespace ToDoList.Project.UI.Controllers
 
             return View();
         }
-        //"a063j00001fDvX4AAK"
-        public IActionResult Privacy()
-        {
-            return View();
-        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

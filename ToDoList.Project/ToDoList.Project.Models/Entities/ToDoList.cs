@@ -22,6 +22,7 @@ namespace ToDoList.Project.Models.Entities
         public string Name__c { get; set; }
 
         [Display(Name ="ToDoSteps")]
+        //[JsonProperty("ToDoSteps__r")]
         public QueryResult<ToDoStep> ToDoSteps__r { get; set; }
     }
 }

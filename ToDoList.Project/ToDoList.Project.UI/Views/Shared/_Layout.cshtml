@@ -12,8 +12,6 @@
     <link rel="stylesheet" href="../../bower_components/font-awesome/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="../../bower_components/Ionicons/css/ionicons.min.css">
-    <!-- daterange picker -->
-    <link rel="stylesheet" href="../../bower_components/bootstrap-daterangepicker/daterangepicker.css">
     <!-- bootstrap datepicker -->
     <link rel="stylesheet" href="../../bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
     <!-- iCheck for checkboxes and radio inputs -->
@@ -62,9 +60,6 @@
     <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap 3.3.7 -->
     <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- date-range-picker -->
-    <script src="../../bower_components/moment/min/moment.min.js"></script>
-    <script src="../../bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
     <!-- bootstrap datepicker -->
     <script src="../../bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
     <!-- SlimScroll -->
@@ -77,5 +72,19 @@
     <script src="../../dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="../../dist/js/demo.js"></script>
+    <script>
+        $(document).ready(function () {
+            //Date picker
+            $('#datepicker').datepicker({
+                autoclose: true
+            })
+            //iCheck for checkbox and radio inputs
+            $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+                checkboxClass: 'icheckbox_minimal-blue',
+                radioClass: 'iradio_minimal-blue'
+            })
+
+        });
+    </script>
 </body>
 </html>
