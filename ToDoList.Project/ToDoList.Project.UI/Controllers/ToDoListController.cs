@@ -20,8 +20,25 @@ namespace ToDoList.Project.UI.Controllers
         [HttpGet]
         public async Task<IActionResult> GetToDoList(string parentId)
         {
-            var toDoList = await _toDoListRepo.GetWithChild(parentId, "toDoSteps__r", new string[] { "Name__c", "DueDate__c", "IsCompleted__c" }, "Title__c", "Description__c", "DueDate__c", "IsCompleted__c");
+            var toDoList = await _toDoListRepo.GetWithChild(parentId, "toDoSteps__r",
+                new string[] { "Name__c", "DueDate__c", "IsCompleted__c" },
+                "Title__c", "Description__c", "DueDate__c", "IsCompleted__c");
+
             if (toDoList.ToDoSteps__r != null)
+            {
+                var toDoStepVMs = new List<ToDoStepVM>();
+                foreach (var toDoStep in toDoList.ToDoSteps__r.Records)
+                {
+                    toDoStepVMs.Add(new ToDoStepVM
+                    {
+                        Description = toDoStep.Description__c,
+                        DueDate = toDoStep.DueDate__c,
+                        Id = toDoStep.Id,
+                        IsCompleted = toDoStep.IsCompleted__c,
+                        Title = toDoStep.Title__c,
+                        ToDoListId = toDoStep.ToDoListId__c
+                    });
+                }
                 return View(new ToDoListListVM
                 {
                     ToDoList = new ToDoListVM
@@ -31,9 +48,10 @@ namespace ToDoList.Project.UI.Controllers
                         IsCompleted = toDoList.IsCompleted__c,
                         Name = toDoList.Name__c
                     },
-                    ToDoSteps = toDoList.ToDoSteps__r.Records
+                    ToDoSteps = toDoStepVMs
 
                 });
+            }
             else
             {
                 return View(new ToDoListListVM
@@ -45,7 +63,7 @@ namespace ToDoList.Project.UI.Controllers
                         IsCompleted = toDoList.IsCompleted__c,
                         Name = toDoList.Name__c
                     },
-                    ToDoSteps = new List<ToDoStep>()
+                    ToDoSteps = new List<ToDoStepVM>()
                 });
             }
         }
@@ -91,9 +109,9 @@ namespace ToDoList.Project.UI.Controllers
             }
         }
         [HttpPost]
-        public async Task<IActionResult> DeleteToDoList(string id,string sfObject)
+        public async Task<IActionResult> DeleteToDoList(string id, string sfObject)
         {
-             var response=await _toDoListRepo.Delete(id, sfObject);
+            var response = await _toDoListRepo.Delete(id, sfObject);
             if (response)
             {
                 return RedirectToAction("Index", "Home");

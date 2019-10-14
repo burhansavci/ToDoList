@@ -72,10 +72,12 @@
     <script src="../../dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="../../dist/js/demo.js"></script>
+    @RenderSection("PageScripts", false)
     <script>
         $(document).ready(function () {
+
             //Date picker
-            $('#datepicker').datepicker({
+            $('.data-datepicker').datepicker({
                 autoclose: true
             })
             //iCheck for checkbox and radio inputs

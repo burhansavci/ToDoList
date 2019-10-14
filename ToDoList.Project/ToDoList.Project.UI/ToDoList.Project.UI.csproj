@@ -8,6 +8,9 @@
     <Content Include="wwwroot\bower_components\bootstrap-datepicker\dist\css\bootstrap-datepicker.min.css" />
     <Content Include="wwwroot\bower_components\bootstrap-daterangepicker\daterangepicker.css" />
     <Content Include="wwwroot\bower_components\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="wwwroot\bower_components\bootstrap\dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="wwwroot\bower_components\bootstrap\dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="wwwroot\bower_components\bootstrap\dist\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="wwwroot\bower_components\font-awesome\css\font-awesome.min.css" />
     <Content Include="wwwroot\bower_components\font-awesome\fonts\fontawesome-webfont.eot" />
     <Content Include="wwwroot\bower_components\font-awesome\fonts\fontawesome-webfont.ttf" />
@@ -32,6 +35,8 @@
     <None Include="wwwroot\bower_components\bootstrap-daterangepicker\daterangepicker.js" />
     <None Include="wwwroot\bower_components\bootstrap\dist\css\bootstrap.min.css.map" />
     <None Include="wwwroot\bower_components\bootstrap\dist\js\bootstrap.min.js" />
+    <None Include="wwwroot\bower_components\bootstrap\dist\fonts\glyphicons-halflings-regular.svg" />
+    <None Include="wwwroot\bower_components\bootstrap\dist\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="wwwroot\bower_components\fastclick\lib\fastclick.js" />
     <None Include="wwwroot\bower_components\font-awesome\fonts\fontawesome-webfont.svg" />
     <None Include="wwwroot\bower_components\font-awesome\fonts\fontawesome-webfont.woff2" />

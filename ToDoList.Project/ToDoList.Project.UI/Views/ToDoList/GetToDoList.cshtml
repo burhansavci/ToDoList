@@ -4,22 +4,75 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <!-- Content Header (Page header) -->
-<section class="content-header">
-    <h1>
-        @Model.ToDoList.Name
-    </h1>
-</section>
+<div class="row">
+    <div class="col-md-4">
+        <h2>
+            @Model.ToDoList.Name
+        </h2>
+    </div>
+    <div class="col-md-8">
+        <button type="button" class="btn btn-default pull-right" style="margin-top:20px" data-toggle="modal" data-target="#modal-addToDoStep">
+            Create ToDoStep
+        </button>
+    </div>
+
+</div>
 
 @if (Model.ToDoSteps != null && Model.ToDoSteps.Any())
 {
-    @foreach (var toDoStep in Model.ToDoSteps)
+    @foreach (var toDoStep in Model.ToDoSteps.OrderByDescending(x=>x.DueDate))
     {
-        <div class="callout callout-info">
-            <h4>@toDoStep.Title__c</h4>
-            <p>
-                @toDoStep.Description__c
-            </p>
-        </div>
+        if (toDoStep.IsCompleted)
+        {
+            <div class="box box-success bg-green" data-id="@toDoStep.Id">
+                <input type="hidden" class="data-picker" data-model="Id" id="@toDoStep.Id" value="@toDoStep.Id" />
+                <div class="box-header with-border bg-green">
+                    <h3 class="box-title data-picker" data-model="Title" type="html">@toDoStep.Title</h3>
+                    <h3 class="box-title pull-right data-picker" data-model="DueDate" data-value="@toDoStep.DueDate" type="htmlDate"> Due Date: @toDoStep.DueDate.ToShortDateString()</h3>
+                </div>
+                <div class="box-body ">
+                    <p class="data-picker" data-model="Description" type="html">@toDoStep.Description</p>
+                    <input type="hidden" class="data-picker" data-model="IsCompleted" value="@toDoStep.IsCompleted.ToString().ToLower()" />
+                    <span class="btn pull-right btn-delete" data-delete-id="@toDoStep.Id" data-toggle="modal" data-target="#modal-deleteToDoStep"> Delete <span class="glyphicon glyphicon-erase"></span></span>
+                    <span class="btn pull-right btn-edit" data-edit-id="@toDoStep.Id" data-toggle="modal" data-target="#modal-updateToDoStep"> Edit <span class="glyphicon glyphicon-edit"></span></span>
+                </div>
+            </div>
+        }
+        if (toDoStep.DueDate.Ticks < DateTime.Now.Ticks && !toDoStep.IsCompleted)
+        {
+            <div class="box box-danger bg-red" data-id="@toDoStep.Id">
+                <input type="hidden" class="data-picker" data-model="Id" id="@toDoStep.Id" value="@toDoStep.Id" />
+                <div class="box-header with-border bg-red">
+                    <h3 class="box-title data-picker" data-model="Title" type="html">@toDoStep.Title</h3>
+                    <h3 class="box-title pull-right data-picker" data-model="DueDate" data-value="@toDoStep.DueDate" type="htmlDate"> Due Date: @toDoStep.DueDate.ToShortDateString()</h3>
+                </div>
+                <div class="box-body ">
+                    <p class="data-picker" data-model="Description" type="html">@toDoStep.Description</p>
+                    <input type="hidden" class="data-picker" data-model="IsCompleted" value="@toDoStep.IsCompleted.ToString().ToLower()" />
+                    <span class="btn pull-right btn-delete" data-delete-id="@toDoStep.Id" data-toggle="modal" data-target="#modal-deleteToDoStep"> Delete <span class="glyphicon glyphicon-erase"></span></span>
+                    <span class="btn pull-right btn-edit" data-edit-id="@toDoStep.Id" data-toggle="modal" data-target="#modal-updateToDoStep"> Edit <span class="glyphicon glyphicon-edit" ></span></span>
+                </div>
+            </div>
+        }
+        else if (toDoStep.DueDate.Ticks > DateTime.Now.Ticks && !toDoStep.IsCompleted)
+        {
+            <div class="box box-default" data-id="@toDoStep.Id">
+                <input type="hidden" class="data-picker" data-model="Id" id="@toDoStep.Id" value="@toDoStep.Id" />
+                <div class="box-header with-border ">
+                    <h3 class="box-title data-picker" data-model="Title" type="html">@toDoStep.Title</h3>
+                    <h3 class="box-title pull-right data-picker" data-model="DueDate" data-value="@toDoStep.DueDate" type="htmlDate"> Due Date: @toDoStep.DueDate.ToShortDateString()</h3>
+                </div>
+                <div class="box-body ">
+                    <p class="data-picker" data-model="Description" type="html">@toDoStep.Description</p>
+                    <input type="hidden" class="data-picker" data-model="IsCompleted" value="@toDoStep.IsCompleted.ToString().ToLower()" />
+                    <span class="btn pull-right btn-delete" data-delete-id="@toDoStep.Id" data-toggle="modal" data-target="#modal-deleteToDoStep"> Delete <span class="glyphicon glyphicon-erase"></span></span>
+                    <span class="btn pull-right btn-edit" data-edit-id="@toDoStep.Id" data-toggle="modal" data-target="#modal-updateToDoStep"> Edit <span class="glyphicon glyphicon-edit"></span></span>
+                </div>
+            </div>
+        }
+
+
+
     }
 }
 else
@@ -34,7 +87,7 @@ else
     </div>
 }
 
-<!--Add Modal-->
+<!--Add ToDoList Modal-->
 <div class="modal fade" id="modal-addToDoList">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -57,7 +110,7 @@ else
                             <div class="input-group-addon">
                                 <i class="fa fa-calendar"></i>
                             </div>
-                            <input type="datetime" name="DueDate" class="form-control pull-right" id="datepicker">
+                            <input type="datetime" name="DueDate" class="form-control pull-right data-datepicker" id="datepicker">
                         </div>
                     </div>
                 </div>
@@ -72,53 +125,53 @@ else
     <!-- /.modal-dialog -->
 </div>
 
-<!--Update Modal-->
-  <div class="modal fade" id="modal-updateToDoList">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="modal-title">Update ToDoList</h4>
-                </div>
-                <form id="toDoListAdd" method="post" action="/todolist/updatetodolist">
-                    <div class="modal-body">
-                        <input type="hidden" name="Id" value="@Model.ToDoList.Id" />
-                        <div class="form-group">
-                            <label>Name</label>
-                            <input type="text" name="Name" class="form-control" value="@Model.ToDoList.Name">
-                        </div>
-                        <div class="form-group">
-                            <label>Due Date:</label>
-                            <div class="input-group date">
-                                <div class="input-group-addon">
-                                    <i class="fa fa-calendar"></i>
-                                </div>
-                                <input type="datetime" name="DueDate" value="@Model.ToDoList.DueDate" class="form-control pull-right" id="datepicker">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>
-                                Completed
-                                <input id="IsCompleted" type="checkbox" value="true" name="IsCompleted" @(Model.ToDoList.IsCompleted ? "checked=\"checked\"" : "") class="minimal" />
-                                <input type="hidden" value="false" name="IsCompleted" />
-                            </label>
-
-                        </div>
-
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Update</button>
-                    </div>
-                </form>
+<!--Update ToDoList Modal-->
+<div class="modal fade" id="modal-updateToDoList">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Update ToDoList</h4>
             </div>
-            <!-- /.modal-content -->
+            <form id="toDoListAdd" method="post" action="/todolist/updatetodolist">
+                <div class="modal-body">
+                    <input type="hidden" name="Id" value="@Model.ToDoList.Id" />
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name="Name" class="form-control" value="@Model.ToDoList.Name">
+                    </div>
+                    <div class="form-group">
+                        <label>Due Date:</label>
+                        <div class="input-group date">
+                            <div class="input-group-addon">
+                                <i class="fa fa-calendar"></i>
+                            </div>
+                            <input type="datetime" name="DueDate" value="@Model.ToDoList.DueDate" class="form-control pull-right data-datepicker">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            Completed
+                            <input id="IsCompleted" type="checkbox" value="true" name="IsCompleted" @(Model.ToDoList.IsCompleted ? "checked=\"checked\"" : "") class="minimal" />
+                            <input type="hidden" value="false" name="IsCompleted" />
+                        </label>
+
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+            </form>
         </div>
-        <!-- /.modal-dialog -->
+        <!-- /.modal-content -->
     </div>
+    <!-- /.modal-dialog -->
+</div>
 
 <!--Delete Modal-->
 <div class="modal fade" id="modal-deleteToDoList">
@@ -133,9 +186,9 @@ else
             <form id="toDoListAdd" method="post" action="/todolist/deletetodolist">
                 <div class="modal-body">
                     You are about to delete <strong>@Model.ToDoList.Name</strong>.
-                     Are you sure you want to continue this process?
-                    <input type="hidden" name="id"  value="@Model.ToDoList.Id"/>
-                    <input type="hidden" name="sfObject"  value="ToDoList__c" />
+                    Are you sure you want to continue this process?
+                    <input type="hidden" name="id" value="@Model.ToDoList.Id" />
+                    <input type="hidden" name="sfObject" value="ToDoList__c" />
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
@@ -148,21 +201,224 @@ else
     <!-- /.modal-dialog -->
 </div>
 
-@*<div class="callout callout-info">
-        <h4>Tip!</h4>
+<!--Add ToDoStep Modal-->
+<div class="modal fade" id="modal-addToDoStep">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Create ToDoStep</h4>
+            </div>
+            <form id="toDoStepAdd" method="post" action="/todostep/addtodostep">
+                <div class="modal-body">
+                    <input type="hidden" name="ToDoListId" value="@Model.ToDoList.Id" />
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" name="Title" class="form-control" placeholder="Enter ...">
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea name="Description" class="form-control" placeholder="Enter ..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Due Date:</label>
+                        <div class="input-group date">
+                            <div class="input-group-addon">
+                                <i class="fa fa-calendar"></i>
+                            </div>
+                            <input type="datetime" name="DueDate" class="form-control pull-right data-datepicker">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Create</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
 
-        <p>
-            Add the layout-top-nav class to the body tag to get this layout. This feature can also be used with a
-            sidebar! So use this class if you want to remove the custom dropdown menus from the navbar and use regular
-            links instead.
-        </p>
-    </div>*@
-@*<div class="callout callout-danger">
-        <h4>Warning!</h4>
+<!--Update ToDoStep Modal-->
+<div class="modal fade" id="modal-updateToDoStep">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Update ToDoStep</h4>
+            </div>
+            <form id="toDoStepUpdate" method="post" action="/todostep/updatetodostep">
+                <input type="hidden" name="toDoListId" value="@Model.ToDoList.Id" />
+                <div class="modal-body">
+                    <input type="hidden" class="form-control " name="Id" value="" />
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" name="Title" class="form-control" value="" placeholder="Enter ...">
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea name="Description" class="form-control" placeholder="Enter ..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Due Date:</label>
+                        <div class="input-group date">
+                            <div class="input-group-addon">
+                                <i class="fa fa-calendar"></i>
+                            </div>
+                            <input type="datetime" name="DueDate" value="" class="form-control pull-right data-datepicker">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            Completed
+                            <input id="IsCompleted" type="checkbox" value="true" name="IsCompleted" class="minimal form-control">
+                            <input type="hidden" value="false" name="IsCompleted" />
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
 
-        <p>
-            The construction of this layout differs from the normal one. In other words, the HTML markup of the navbar
-            and the content will slightly differ than that of the normal layout.
-        </p>
-    </div>*@
+<!--Delete ToDoStep Modal-->
+<div class="modal fade" id="modal-deleteToDoStep">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Delete ToDoStep</h4>
+            </div>
+            <form id="toDoStepDelete" method="post" action="/todostep/deletetodostep">
+                <div class="modal-body">
+                    You are about to delete <strong name="Title" class="data-control" type="html"></strong>.
+                    Are you sure you want to continue this process?
+                    <input type="hidden" name="parentId" value="@Model.ToDoList.Id" />
+                    <input type="hidden" class="data-control" name="Id" value="" />
+                    <input type="hidden" name="sfObject" value="ToDoStep__c" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Yes</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+@section PageScripts{
+    <script>
+        $(document).ready(function () {
+            $('.btn-edit').click(function () {
+                $("#toDoStepUpdate #IsCompleted").prop('checked', "")
+                $("#toDoStepUpdate #IsCompleted").parent().prop("class", "icheckbox_minimal-blue")
+                $("#toDoStepUpdate #IsCompleted").parent().prop("aria-checked", false)
+                var id = $(this).attr("data-edit-id");
+                var data = {};
+                $('.box').each(function () {
+                    var dataId = $(this).attr("data-id");
+                    if (dataId == id) {
+                        $(this).find(".data-picker").each(function () {
+                            var key = $(this).attr("data-model");
+                            var value;
+                            var type = $(this).attr('type');
+                            switch (type) {
+                                case 'htmlDate':
+                                    value = $(this).html().split(': ')[1];
+                                    break;
+                                case 'html':
+                                    value = $(this).html();
+                                    break;
+                                default:
+                                    value = $(this).val();
+                            }
+                            data[key] = value
+                        });
+                    }
+                });
+                console.log(data);
+
+                $("#toDoStepUpdate .modal-body .form-control").each(function () {
+                    var type = $(this).attr('type');
+                    var key = $(this).attr("name");
+                    console.log(key);
+                    switch (type) {
+                        case 'html':
+                            $(this).html(data[key]);
+                            break;
+                        case 'checkbox':
+                            console.log(data[key]);
+                            if (data[key] == 'true') {
+                                console.log($(this).parent());
+                                $(this).prop('checked', 'checked')
+                                $(this).parent().prop("class", "icheckbox_minimal-blue checked")
+                                $(this).parent().prop("aria-checked", true)
+                            }
+                            break;
+                        default:
+                            $(this).val(data[key]);
+                    }
+                });
+            })
+
+            $('.btn-delete').click(function () {
+                var id = $(this).attr("data-delete-id");
+                var data = {};
+                $('.box').each(function () {
+                    var dataId = $(this).attr("data-id");
+                    if (dataId == id) {
+                        console.log("dasd");
+                        $(this).find(".data-picker").each(function () {
+                            var key = $(this).attr("data-model");
+                            var value;
+                            var type = $(this).attr('type');
+                            switch (type) {
+                                case 'htmlDate':
+                                    value = $(this).html().split(': ')[1];
+                                    break;
+                                case 'html':
+                                    value = $(this).html();
+                                    break;
+                                default:
+                                    value = $(this).val();
+                            }
+                            data[key] = value
+                        });
+                    }
+                });
+                console.log(data);
+                $("#toDoStepDelete .modal-body .data-control").each(function () {
+                    var type = $(this).attr('type');
+                    var key = $(this).attr("name");
+
+                    switch (type) {
+                        case 'html':
+                            $(this).html(data[key]);
+                            break;
+                        default:
+                            $(this).val(data[key]);
+                    }
+                });
+
+            });
+        });
+    </script>
+}
+
+
 

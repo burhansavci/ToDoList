@@ -29,6 +29,7 @@ namespace ToDoList.Project.UI
             services.AddOptions();
             services.Configure<MyConfig>(Configuration.GetSection("Salesforce"));
             services.AddScoped<IToDoListRepository, ToDoListRepository>();
+            services.AddScoped<IToDoStepRepository, ToDoStepRepository>();
             services.AddControllersWithViews();
         }
 

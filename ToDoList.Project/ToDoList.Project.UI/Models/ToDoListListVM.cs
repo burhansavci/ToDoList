@@ -10,6 +10,6 @@ namespace ToDoList.Project.UI.Models
     {
         public List<ToDoListVM> ToDoLists { get; set; }
         public ToDoListVM ToDoList { get; set; }
-        public List<ToDoStep> ToDoSteps{ get; set; }
+        public List<ToDoStepVM> ToDoSteps{ get; set; }
     }
 }
