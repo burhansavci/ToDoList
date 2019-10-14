@@ -12,17 +12,12 @@ namespace ToDoList.Project.Models.Entities
         [Key]
         public string Id { get; set; }
 
-        [Display(Name = "DueDate")]
         public DateTime Duedate__c { get; set; }
 
-        [Display(Name = "IsCompleted")]
         public bool IsCompleted__c { get; set; }
 
-        [Display(Name = "Name")]
         public string Name__c { get; set; }
 
-        [Display(Name ="ToDoSteps")]
-        //[JsonProperty("ToDoSteps__r")]
         public QueryResult<ToDoStep> ToDoSteps__r { get; set; }
     }
 }

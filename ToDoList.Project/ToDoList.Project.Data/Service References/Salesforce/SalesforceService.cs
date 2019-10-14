@@ -8,12 +8,13 @@ using ToDoList.Project.Models.CustomConfig;
 
 namespace ToDoList.Project.Data.Service_References.Salesforce
 {
+    //Singleton uygulanacak.
     public class SalesforceService
     {
         private readonly MyConfig _configuration;
         private AuthenticationClient AuthenticationClient { get; }
 
-
+        
         public SalesforceService(MyConfig configuration)
         {
             this.AuthenticationClient = new AuthenticationClient();

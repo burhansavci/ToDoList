@@ -5,3 +5,4 @@ C:\Users\burha\OneDrive\Desktop\Projects\ToDoList\ToDoList.Project\ToDoList.Proj
 C:\Users\burha\OneDrive\Desktop\Projects\ToDoList\ToDoList.Project\ToDoList.Project.Models\obj\Debug\netcoreapp3.0\ToDoList.Project.Models.AssemblyInfo.cs
 C:\Users\burha\OneDrive\Desktop\Projects\ToDoList\ToDoList.Project\ToDoList.Project.Models\obj\Debug\netcoreapp3.0\ToDoList.Project.Models.dll
 C:\Users\burha\OneDrive\Desktop\Projects\ToDoList\ToDoList.Project\ToDoList.Project.Models\obj\Debug\netcoreapp3.0\ToDoList.Project.Models.pdb
+C:\Users\burha\OneDrive\Desktop\Projects\ToDoList\ToDoList.Project\ToDoList.Project.Models\obj\Debug\netcoreapp3.0\ToDoList.Project.Models.csprojAssemblyReference.cache
