@@ -8,19 +8,37 @@ using ToDoList.Project.Models.CustomConfig;
 
 namespace ToDoList.Project.Data.Service_References.Salesforce
 {
-    //Singleton uygulanacak.
+
     public class SalesforceService
     {
-        private readonly MyConfig _configuration;
+        private MyConfig _configuration { get; set; }
         private AuthenticationClient AuthenticationClient { get; }
+        private static SalesforceService Instance = null;
+        private static object pLock = new object();
 
-        
-        public SalesforceService(MyConfig configuration)
+        private SalesforceService()
         {
             this.AuthenticationClient = new AuthenticationClient();
-            _configuration = configuration;
         }
 
+        internal static SalesforceService GetSalesforceService
+        {
+            get
+            {
+                lock (pLock)
+                {
+                    if (Instance == null)
+                    {
+                        Instance = new SalesforceService();
+                    }
+                }
+                return Instance;
+            }
+        }
+        internal void InitConfig(MyConfig configuraton)
+        {
+            _configuration = configuraton;
+        }
         public async Task<ForceClient> GetForceClient()
         {
             await this.AuthenticationClient.UsernamePasswordAsync(

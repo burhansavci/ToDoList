@@ -22,9 +22,10 @@ namespace ToDoList.Project.Data.Repositories
         public Repository(IOptions<MyConfig> config)
         {
             _config = config;
-            _client = new SalesforceService(_config.Value).GetForceClient().Result;
+            var service = SalesforceService.GetSalesforceService;
+            service.InitConfig(_config.Value);
+            _client = service.GetForceClient().Result;
         }
-
         public async Task<List<TEntity>> Get(string sfObject, params string[] includedFields)
         {
             var query = new StringBuilder();
