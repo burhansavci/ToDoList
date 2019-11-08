@@ -20,14 +20,14 @@
 
 @if (Model.ToDoSteps != null && Model.ToDoSteps.Any())
 {
-    @foreach (var toDoStep in Model.ToDoSteps.OrderByDescending(x=>x.DueDate))
+    @foreach (var toDoStep in Model.ToDoSteps.OrderByDescending(x => x.DueDate))
     {
         if (toDoStep.IsCompleted)
         {
             <div class="box box-success bg-green" data-id="@toDoStep.Id">
                 <input type="hidden" class="data-picker" data-model="Id" id="@toDoStep.Id" value="@toDoStep.Id" />
                 <div class="box-header with-border bg-green">
-                    <h3 class="box-title data-picker" data-model="Title" type="html">@toDoStep.Title</h3>
+                    <h3 class="box-title data-picker" data-model="Title" type="html">@toDoStep.Title</h3><i class="icon fa fa-check"></i>
                     <h3 class="box-title pull-right data-picker" data-model="DueDate" data-value="@toDoStep.DueDate" type="htmlDate"> Due Date: @toDoStep.DueDate.ToShortDateString()</h3>
                 </div>
                 <div class="box-body ">
@@ -43,14 +43,14 @@
             <div class="box box-danger bg-red" data-id="@toDoStep.Id">
                 <input type="hidden" class="data-picker" data-model="Id" id="@toDoStep.Id" value="@toDoStep.Id" />
                 <div class="box-header with-border bg-red">
-                    <h3 class="box-title data-picker" data-model="Title" type="html">@toDoStep.Title</h3>
+                    <h3 class="box-title data-picker" data-model="Title" type="html">@toDoStep.Title</h3><i class="icon fa fa-ban"></i>
                     <h3 class="box-title pull-right data-picker" data-model="DueDate" data-value="@toDoStep.DueDate" type="htmlDate"> Due Date: @toDoStep.DueDate.ToShortDateString()</h3>
                 </div>
                 <div class="box-body ">
                     <p class="data-picker" data-model="Description" type="html">@toDoStep.Description</p>
                     <input type="hidden" class="data-picker" data-model="IsCompleted" value="@toDoStep.IsCompleted.ToString().ToLower()" />
                     <span class="btn pull-right btn-delete" data-delete-id="@toDoStep.Id" data-toggle="modal" data-target="#modal-deleteToDoStep"> Delete <span class="glyphicon glyphicon-erase"></span></span>
-                    <span class="btn pull-right btn-edit" data-edit-id="@toDoStep.Id" data-toggle="modal" data-target="#modal-updateToDoStep"> Edit <span class="glyphicon glyphicon-edit" ></span></span>
+                    <span class="btn pull-right btn-edit" data-edit-id="@toDoStep.Id" data-toggle="modal" data-target="#modal-updateToDoStep"> Edit <span class="glyphicon glyphicon-edit"></span></span>
                 </div>
             </div>
         }
@@ -59,7 +59,7 @@
             <div class="box box-default" data-id="@toDoStep.Id">
                 <input type="hidden" class="data-picker" data-model="Id" id="@toDoStep.Id" value="@toDoStep.Id" />
                 <div class="box-header with-border ">
-                    <h3 class="box-title data-picker" data-model="Title" type="html">@toDoStep.Title</h3>
+                    <h3 class="box-title data-picker" data-model="Title" type="html">@toDoStep.Title</h3><i class="icon fa fa-hourglass-half"></i>
                     <h3 class="box-title pull-right data-picker" data-model="DueDate" data-value="@toDoStep.DueDate" type="htmlDate"> Due Date: @toDoStep.DueDate.ToShortDateString()</h3>
                 </div>
                 <div class="box-body ">
@@ -321,6 +321,13 @@ else
     </div>
     <!-- /.modal-dialog -->
 </div>
+@section PageStyles{
+    <style>
+        i {
+            padding:5px
+        }
+    </style>
+}
 @section PageScripts{
     <script>
         $(document).ready(function () {
