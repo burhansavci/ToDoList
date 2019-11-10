@@ -41,6 +41,7 @@
     <None Include="wwwroot\bower_components\font-awesome\fonts\fontawesome-webfont.svg" />
     <None Include="wwwroot\bower_components\font-awesome\fonts\fontawesome-webfont.woff2" />
     <None Include="wwwroot\bower_components\jquery-slimscroll\jquery.slimscroll.min.js" />
+    <None Include="wwwroot\bower_components\jquery-ui\jquery-ui.min.js" />
     <None Include="wwwroot\bower_components\jquery\dist\jquery.min.js" />
     <None Include="wwwroot\bower_components\jquery\dist\jquery.min.map" />
     <None Include="wwwroot\bower_components\moment\min\moment.min.js" />
